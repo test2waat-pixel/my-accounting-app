@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+:root {
+    --primary-blue: #2196F3;
+    --primary-dark: #1976D2;
+    --red-light: #FFCDD2;
+    --red-main: #E53935;
+    --green-light: #C8E6C9;
+    --green-main: #43A047;
+    --bg-color: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --text-main: #2C3E50;
+    --text-muted: #7F8C8D;
+    --border-color: #EEEEEE;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* إجبار الأرقام لتكون باللغة الإنجليزية في كامل التطبيق */
+.en-font {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* SPA Screens */
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding-bottom: 150px; 
+}
+.screen.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* إعدادات إدخال الهاتف المزدوج والمستقل */
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+.country-code {
+    padding: 12px 15px;
+    background: #f5f5f5;
+    color: var(--text-main);
+    font-weight: bold;
+    border-right: 1px solid var(--border-color);
+}
+.phone-wrapper input {
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100%;
+    padding: 12px;
+    outline: none;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Sync Bar */
+.sync-bar {
+    background: #333;
+    color: white;
+    font-size: 12px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.sync-actions { display: flex; gap: 5px; }
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.indicator.red { background: #ff5252; box-shadow: 0 0 5px #ff5252; }
+.indicator.green { background: #4caf50; box-shadow: 0 0 5px #4caf50; }
+.btn-sync {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+/* Headers */
+.main-header, .sub-header {
+    padding: 20px 15px;
+    background: var(--card-bg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sub-header h2 { font-size: 18px; flex-grow: 1; text-align: center; font-weight: bold; }
+.back-btn { background: none; border: none; font-size: 20px; color: var(--primary-blue); cursor: pointer; }
+.btn-text, .btn-icon { background: none; border: none; color: var(--primary-blue); font-weight: bold; cursor: pointer; }
+.header-actions { display: flex; gap: 15px; align-items: center; }
+.whatsapp-btn { color: #25D366; font-size: 18px; }
+
+/* Totals Card */
+.totals-card {
+    background: var(--card-bg);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+.total-section { flex: 1; }
+.total-section p { color: var(--text-muted); font-size: 14px; margin-bottom: 5px; }
+.total-section.gave h2 { color: var(--red-main); }
+.total-section.took h2 { color: var(--green-main); }
+.divider { width: 1px; background: var(--border-color); margin: 0 15px; }
+
+/* Search & List */
+.search-container { padding: 0 15px; margin-bottom: 15px; }
+.search-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    background: var(--card-bg);
+}
+
+.customer-card {
+    background: var(--card-bg);
+    margin: 0 15px 10px;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 4px solid var(--primary-blue);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.customer-info h3 { font-size: 16px; margin-bottom: 5px; }
+.customer-info p { font-size: 12px; color: var(--text-muted); }
+.customer-balance { text-align: left; font-weight: bold; direction: ltr; }
+.balance-gave { color: var(--red-main); }
+.balance-took { color: var(--green-main); }
+
+/* FAB Button */
+.fab {
+    position: fixed;
+    bottom: 90px; 
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Forms */
+.form-container { padding: 20px 15px; }
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500; }
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+}
+.block-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Profile / Statement */
+.profile-balance {
+    text-align: center;
+    padding: 30px 15px;
+    background: var(--card-bg);
+    margin-bottom: 15px;
+}
+.profile-balance h1 { font-size: 32px; margin: 10px 0; }
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+.btn-action {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.gave-btn { background: var(--red-main); }
+.took-btn { background: var(--green-main); }
+
+.transaction-item {
+    background: var(--card-bg);
+    padding: 15px;
+    margin: 0 15px 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    border-right: 4px solid var(--border-color);
+}
+.transaction-item.t-gave { border-color: var(--red-main); }
+.transaction-item.t-took { border-color: var(--green-main); }
+.t-date { font-size: 12px; color: var(--text-muted); margin-top: 5px; }
+
+/* Calculator UI - Layout */
+#calculator-screen {
+    padding-bottom: 450px; /* لترك مساحة للحاوية السفلية الكبيرة */
+}
+
+.calc-display-area { 
+    padding: 20px; 
+    background: var(--card-bg); 
+    text-align: left; 
+}
+#calc-display { font-size: 40px; margin-bottom: 15px; overflow-x: auto; color: var(--text-main); }
+.calc-inputs { display: flex; flex-direction: column; gap: 10px; }
+.calc-inputs input { padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; text-align: right;}
+
+/* الحاوية السفلية المدمجة للآلة الحاسبة */
+.calc-bottom-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--border-color);
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    z-index: 1000;
+}
+
+/* زر التأكيد العريض */
+.btn-confirm-calc {
+    width: 100%;
+    padding: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+.btn-confirm-calc.gave { background-color: var(--red-main); }
+.btn-confirm-calc.took { background-color: var(--green-main); }
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+.calc-btn {
+    background: var(--card-bg);
+    border: none;
+    padding: 20px 0;
+    font-size: 24px;
+    color: var(--text-main);
+    cursor: pointer;
+}
+.calc-btn:active { background: #E0E0E0; }
+.op-btn { color: var(--primary-blue); font-weight: bold; background: #F5F7FA;}
+.action-btn { color: var(--red-main); font-size: 20px;}
+.equals-btn { background: var(--primary-blue); color: white; }
