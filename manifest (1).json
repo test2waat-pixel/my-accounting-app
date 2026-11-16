@@ -1,0 +1,15 @@
+{
+  "background_color": "#ffffff",
+  "dir": "auto",
+  "display": "standalone",
+  "name": "test2waat-pixel.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "test2waat-pixel.github",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "lang": "ar",
+  "categories": [
+    "utilities"
+  ]
+}
